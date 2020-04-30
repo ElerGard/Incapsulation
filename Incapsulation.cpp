@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 class Player
 {
@@ -6,6 +6,7 @@ protected:
 	int damage = 1;
 
 public:
+	//Задание 1
 	bool isGrounded = true;  // Отсутствие инкапсуляции
 	
 	// get, set
@@ -66,7 +67,7 @@ class Enemy : public Player
 	}
 };
 
-//Позднее связывание
+//Задание 2
 void attack(const Player *attacker)
 {
 	attacker->hit();
@@ -81,14 +82,19 @@ int main()
 {
 	Player Man;
 	Enemy Alien;
-	Man.isGrounded = false; 
-	attack(&Man);
-	attack(&Alien);
-	killAlien(&Man);
-	killAlien(&Alien);
+	Man.isGrounded = false;
+	Man.setDamage(15);
+	std::cout << Man.getDamage() << '\n';
+	std::cout << '\n';
 	Man.increaseDamage(500);
 	std::cout << Man.getDamage() << '\n';
 	Man.decreaseDamage(520);
 	std::cout << Man.getDamage() << '\n';
-
+	std::cout << '\n';
+	attack(&Man);
+	attack(&Alien);
+	std::cout << '\n';
+	killAlien(&Man);
+	killAlien(&Alien);
 }
+//100 строчка :З
